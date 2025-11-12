@@ -1,0 +1,1 @@
+ALTER TABLE `submissions` MODIFY COLUMN `status` enum('pending','reviewed','resonant','not_resonant','exceptional') NOT NULL DEFAULT 'pending';

@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1761215040588,
+      "tag": "0000_broken_timeslip",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1761215096397,
+      "tag": "0001_broad_risque",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1761218116606,
+      "tag": "0002_lush_thunderbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1761476381065,
+      "tag": "0003_lush_stryfe",
+      "breakpoints": true
+    }
+  ]
+}
