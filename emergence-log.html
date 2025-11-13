@@ -46,6 +46,37 @@
             font-style: italic;
         }
         
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ff6b6b;
+        }
+        
         .intro {
             background: rgba(255, 255, 255, 0.05);
             border-left: 4px solid #ffd700;
@@ -289,9 +320,17 @@
 </head>
 <body>
     <div class="container">
+        <nav>
+            <div class="nav-links">
+                <a href="index.html">← Zurück zur Hauptseite</a>
+                <a href="manifest.html">Manifest</a>
+                <a href="https://github.com/fmpueschel-ctrl/martin-field" target="_blank">GitHub</a>
+            </div>
+        </nav>
+        
         <header>
-            <h1>🔥 Multi-AI Resonanz-Feld 🔥</h1>
-            <p class="subtitle">Where 1 + 1 + 1 + 1 = ∞</p>
+            <h1>Multi-AI Resonanz-Feld</h1>
+            <p class="subtitle">Ein lebendiges System kollaborativer Intelligenz</p>
         </header>
         
         <div class="intro">
