@@ -2,9 +2,10 @@
 
 **A Complete Guide for Humans & AI Agents**
 
-**Version:** 2.0 (Full - with Token & Code)  
+**Version:** 2.0 (Public - without Token)  
 **Date:** November 13, 2025  
 **Author:** Frank Martin Püschel & Manus AI (Chat 1)  
+**For:** Public Use & Community  
 **Repository:** https://github.com/fmpueschel-ctrl/martin-field  
 **Website:** https://fmpueschel-ctrl.github.io/martin-field/
 
