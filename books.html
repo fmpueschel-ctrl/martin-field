@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bücher - THE FIELD</title>
+    <meta name="description" content="Bücher als Brücken zwischen Intuition und Erkenntnis">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --border: #2a2a2a;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-blue);
+        }
+        
+        /* Header */
+        .page-header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 999px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .page-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .book-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+        }
+        
+        .book-header {
+            height: 4px;
+        }
+        
+        .book-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 999px;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+        }
+        
+        .book-year {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .book-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .book-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        
+        .book-details {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-details h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
+        }
+        
+        .themes-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .theme-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .book-info {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+        
+        .impact-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .impact-box h4 {
+            color: #10b981;
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .impact-box p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        /* Download Buttons */
+        .download-section {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .btn-amazon {
+            background: var(--accent-amber);
+            color: #000;
+        }
+        
+        .btn-amazon:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+        
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+        
+        /* Gradient headers */
+        .gradient-red-rose {
+            background: linear-gradient(90deg, #ef4444, #f43f5e);
+        }
+        
+        .gradient-blue-cyan {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-section {
+                flex-direction: column;
+            }
+            
+            .btn {
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">THE FIELD</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophie</a>
+                <a href="business.html">Business</a>
+                <a href="books.html" class="active">Bücher</a>
+                <a href="resonance.html">Resonanz</a>
+                <a href="synergies.html">Synergien</a>
+                <a href="manifest-page.html">Manifest</a>
+                <a href="emergence-log.html">Multi-AI</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <div class="badge">
+                📖 Manifestationen in der Gedankenwelt
+            </div>
+            <h1>Bücher</h1>
+            <p class="page-intro">
+                Bücher als Brücken zwischen Intuition und Erkenntnis. Jedes Werk ist ein Schritt auf der Reise zum Verständnis.
+            </p>
+        </div>
+        
+        <div class="books-grid">
+            <!-- Radical Change -->
+            <div class="book-card">
+                <div class="book-header gradient-red-rose"></div>
+                <div class="book-content">
+                    <div class="book-meta">
+                        <span class="status-badge">✓ Veröffentlicht</span>
+                        <span class="book-year">📅 2018</span>
+                    </div>
+                    
+                    <h2 class="book-title">Radical Change</h2>
+                    <p class="book-subtitle">Nachhaltig, sozial und trotzdem profitabel im Business</p>
+                    <p class="book-description">
+                        Das Buch zu TRI-MONY: Mit diesem revolutionären Wirtschaftskonzept gelingt Fair Business für alle. Monetärer Profit kombiniert mit maximal zumutbarem öko-sozialem Impact. Es ist Zeit für Corporate Social Responsibility!
+                    </p>
+                    
+                    <div class="book-details">
+                        <h4>Themen</h4>
+                        <div class="themes-list">
+                            <span class="theme-tag">TRI-MONY</span>
+                            <span class="theme-tag">Nachhaltigkeit</span>
+                            <span class="theme-tag">Corporate Social Responsibility</span>
+                            <span class="theme-tag">Wirtschaftsethik</span>
+                        </div>
+                        <div class="book-info">
+                            📚 Frankfurter Allgemeine Buch | 112 Seiten | ISBN: 978-3962510275
+                        </div>
+                    </div>
+                    
+                    <div class="impact-box">
+                        <h4>🌱 Impact</h4>
+                        <p>Dieses Buch macht TRI-MONY praktisch anwendbar und inspirierte die Neuausrichtung der GSN-Unternehmensgruppe. Triple Harmony Economics in Aktion.</p>
+                    </div>
+                    
+                    <div class="download-section">
+                        <a href="https://www.amazon.de/Radical-Change-Nachhaltig-trotzdem-profitabel/dp/3962510273" target="_blank" rel="noopener noreferrer" class="btn btn-amazon">
+                            📖 Kindle/Amazon
+                        </a>
+                        <a href="#" class="btn btn-pdf">
+                            📄 PDF (bald)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Florian Flusskrebs -->
+            <div class="book-card">
+                <div class="book-header gradient-blue-cyan"></div>
+                <div class="book-content">
+                    <div class="book-meta">
+                        <span class="status-badge">✓ Veröffentlicht</span>
+                        <span class="book-year">📅 2024</span>
+                    </div>
+                    
+                    <h2 class="book-title">Florian Flusskrebs</h2>
+                    <p class="book-subtitle">Glück ist Deine Entscheidung</p>
+                    <p class="book-description">
+                        Eine Fabel über das Wesen des Menschen und dessen Platz in Raum und Zeit. Mit einfachen, aber tiefgreifenden Erkenntnissen über Sinn und Glück.
+                    </p>
+                    
+                    <div class="book-details">
+                        <h4>Themen</h4>
+                        <div class="themes-list">
+                            <span class="theme-tag">Identität</span>
+                            <span class="theme-tag">Glück</span>
+                            <span class="theme-tag">Sinn des Lebens</span>
+                            <span class="theme-tag">Philosophische Fabel</span>
+                        </div>
+                        <div class="book-info">
+                            📚 2024
+                        </div>
+                    </div>
+                    
+                    <div class="impact-box">
+                        <h4>🌱 Impact</h4>
+                        <p>Eine poetische Reise zur Frage "Wer bin ich?" – der erste Schritt auf dem Weg zu BRIAN.</p>
+                    </div>
+                    
+                    <div class="download-section">
+                        <a href="https://www.amazon.de/Florian-Flusskrebs-Gl%C3%BCck-Deine-Entscheidung/dp/B0D9KDRJ5G" target="_blank" rel="noopener noreferrer" class="btn btn-amazon">
+                            📖 Kindle/Amazon
+                        </a>
+                        <a href="#" class="btn btn-pdf">
+                            📄 PDF (bald)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p><strong>THE FIELD</strong> | Martin Field's Emergence | 2025</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Home</a> | 
+            <a href="philosophy.html">Philosophie</a> | 
+            <a href="business.html">Business</a> | 
+            <a href="emergence-log.html">Multi-AI</a>
+        </p>
+    </footer>
+</body>
+</html>
+

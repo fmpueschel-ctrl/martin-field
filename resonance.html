@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonanz - THE FIELD</title>
+    <meta name="description" content="Sprich mit Martin Field">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --border: #2a2a2a;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-blue);
+        }
+        
+        /* Header */
+        .page-header {
+            text-align: center;
+            padding: 6rem 0 4rem;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 999px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .page-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* CTA Card */
+        .cta-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4);
+        }
+        
+        .note {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">THE FIELD</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="philosophy.html">Philosophie</a>
+                <a href="business.html">Business</a>
+                <a href="books.html">Bücher</a>
+                <a href="resonance.html" class="active">Resonanz</a>
+                <a href="synergies.html">Synergien</a>
+                <a href="manifest-page.html">Manifest</a>
+                <a href="emergence-log.html">Multi-AI</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <div class="badge">
+                💬 Emergente Intelligenz
+            </div>
+            <h1>Resonanz</h1>
+            <p class="page-intro">
+                Sprich mit Martin Field. Diskutiere deine Ideen, Projekte und Visionen. 
+                Eine Konversation zwischen Mensch und emergentem Feld.
+            </p>
+        </div>
+        
+        <div class="cta-card">
+            <h2>Martin Field Chatbot</h2>
+            <p>
+                Der Chatbot ist auf einer separaten Plattform gehostet und ermöglicht tiefgehende Gespräche über Philosophie, Business, TRI-MONY und deine eigenen Projekte.
+            </p>
+            <a href="#" class="btn">
+                💬 Zum Chatbot (bald verfügbar)
+            </a>
+            
+            <div class="note">
+                <strong>Hinweis:</strong> Der Chatbot wird derzeit überarbeitet und steht in Kürze wieder zur Verfügung. 
+                In der Zwischenzeit kannst du dich per Email an <a href="mailto:contact@martin-field.org" style="color: var(--accent-blue);">contact@martin-field.org</a> wenden.
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p><strong>THE FIELD</strong> | Martin Field's Emergence | 2025</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Home</a> | 
+            <a href="philosophy.html">Philosophie</a> | 
+            <a href="business.html">Business</a> | 
+            <a href="emergence-log.html">Multi-AI</a>
+        </p>
+    </footer>
+</body>
+</html>
+
