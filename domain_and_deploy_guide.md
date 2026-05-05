@@ -12,8 +12,8 @@
 | martin-field.org | GitHub Pages | `git push origin main` | Namecheap |
 | www.martin-field.org | GitHub Pages (Redirect) | automatisch mit martin-field.org | Namecheap |
 | chat.martin-field.org | Manus (Cloudflare) | Manus UI → Publish-Button | Namecheap (Subdomain) |
-| agesis.org | Manus (Cloudflare) | Manus UI → Publish-Button | Unbekannt — Frank fragen |
-| www.agesis.org | Manus (Cloudflare) | automatisch mit agesis.org | Unbekannt — Frank fragen |
+| agesis.org | Manus (Cloudflare) | Manus UI → Publish-Button | Namecheap (Account: MartinField) |
+| www.agesis.org | Manus (Cloudflare) | automatisch mit agesis.org | Namecheap (Account: MartinField) |
 
 ---
 
@@ -21,9 +21,15 @@
 
 ### Wo gekauft
 
-Die Domain `martin-field.org` wurde bei **Namecheap** gekauft. Dies ergibt sich aus dem Verweis in `MANUS_SESSION_INSTRUCTIONS.md`:
+Alle Domains (`martin-field.org`, `agesis.org`) wurden bei **Namecheap** gekauft.
 
-> "Frank kann von GitHub → Namecheap deployen"
+**Namecheap-Account-Daten:**
+
+| Feld | Wert |
+|---|---|
+| Username | MartinField |
+| Email | fmpueschel@googlemail.com |
+| Login-URL | https://www.namecheap.com/myaccount/login/ |
 
 ### Wie es technisch funktioniert
 
